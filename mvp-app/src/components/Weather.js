@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Day from './Day';
+import './Weather.css';
 
 const Weather = (props) => {
   return (

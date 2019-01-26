@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Weather from './Weather';
+import Reminders from './Reminders';
 
 class App extends Component {
   constructor(props) {
@@ -24,6 +25,7 @@ class App extends Component {
     return (
       <div className="App">
         <Weather days={this.state.days} location={this.state.location} />
+        <Reminders />
       </div>
     );
   }
