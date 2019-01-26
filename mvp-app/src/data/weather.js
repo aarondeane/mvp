@@ -8,3 +8,5 @@ const weatherIcons = {
   fog: 'https://s3-us-west-1.amazonaws.com/mvp-app-trimtab/weather-fog.jpg',
   windy: null,
 }
+
+module.exports = weatherIcons;
