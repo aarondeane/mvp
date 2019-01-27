@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-//import reminders from '../data/reminders';
 
 class Reminders extends Component {
   constructor(props) {
@@ -43,7 +42,7 @@ class Reminders extends Component {
     })
     .catch(err => console.error('Error: ', err))
 
-    event.preventDefault();
+    // event.preventDefault();
   }
 
   componentDidMount() {
@@ -52,7 +51,6 @@ class Reminders extends Component {
       return response.json();
     })
     .then(result => {
-      console.log(result);
       this.setState({
         reminders: result,
       })
