@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import reminders from '../data/reminders';
+//import reminders from '../data/reminders';
 
 class Reminders extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      newReminder: null,
-      reminders: reminders,
+      newReminder: '',
+      reminders: [],
     }
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -23,8 +23,40 @@ class Reminders extends Component {
   }
 
   handleSubmit(event) {
-    reminders.push(this.state.newReminder);
+    let data = {
+      text: this.state.newReminder,
+      complete: false,
+    };
+    
+    fetch('/api/reminders', {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(res => {
+      console.log('Reminder added!');
+      this.setState({
+        newReminder: ''
+      });
+    })
+    .catch(err => console.error('Error: ', err))
+
     event.preventDefault();
+  }
+
+  componentDidMount() {
+    fetch('/api/reminders')
+    .then(response => {
+      return response.json();
+    })
+    .then(result => {
+      console.log(result);
+      this.setState({
+        reminders: result,
+      })
+    })
   }
 
   render() {
@@ -37,7 +69,7 @@ class Reminders extends Component {
         </form>
         <ul className="reminder-list">
           {this.state.reminders.map(reminder => (
-            <li>{reminder}</li>
+            <li key={reminder._id}>{reminder.text}</li>
           ))}
         </ul>
       </div>      
