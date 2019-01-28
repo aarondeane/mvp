@@ -1,7 +1,9 @@
 import React from 'react';
-//import images from '../data/weather';
 
 const Day = (props) => {
+  let day = new Date();
+  let today = props.days[day.getDay()];
+  console.log(props)
   return (
     <div className="day-tile">
       <span className="weather-icon">
