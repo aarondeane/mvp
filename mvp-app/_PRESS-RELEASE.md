@@ -17,28 +17,28 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
+  > TrimTab
 
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  > Steer your life in the right direction, one day at a time.
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  > Everything you need to know to get your day started off on the right track all in one place. Need that umbrella this afternoon? Remember that meeting this morning? Did you run out of toothpaste and need to pick up more on the way home? Trimtab gives you a central place to store all of the important information you need to have for the day including weather, reminders, news and more. Don't be a rudderless ship subject to the whims of life, stay on course one day at a time with Trimtab.
 
 ## Problem ##
-  > Describe the problem your product solves.
+  > Most people start everyday the same way, by opening a web browser window. Why not make that first window you open more meaningful and impactful by aggregating all of the information you need to start your day.
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+  > Trimtab provides a simple, elegant homepage to store and view all of your relevant information, no more having 5 tabs open to check weather, to-do's, news, etc 
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+  > I used to begin my morning like most people, flipping back and forth between social media, news, weather, to-dos and the next thing I knew an hour had gone by and I had made no progress on anything. After starting my day with Trimtab my days are more focused and productive and I can get everything i need to know in one spot without the endless distractions.
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+  > Just navigate to the homepage, sign-up using your email and away you go! Trimtab will use your location to get you relevant information and allow you to start storing important tasks or reminders.
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  > Trimtab is dope! Before I was falling into a black hole of technology, mindlessly scrolling and double-tapping, ignoring my friends and family, unaware that my life was crumbling around me. But now, with Trimtab, I'm focused, productive, and a contributing member of society again. Thanks Trimtab! -Bob
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+  > Don't be rudderless ship, take control of your life, with Trimtab!

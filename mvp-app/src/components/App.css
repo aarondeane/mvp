@@ -1,0 +1,59 @@
+body {
+  background-color:#CAE4DB;
+  font-family: 'Quicksand', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: space-around;
+}
+
+.App-header {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  color: black;
+  font-weight: bold;
+  font-family: sans-serif;
+  font-size: 40px;
+}
+
+.news-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color:black;
+}
+.reminders {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color:black;
+}
+.reminders label {
+  font-weight: bold;
+}
+.reminder-input {
+  width: 100%;
+  margin-right: 10px;
+}
+.weather-bar {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.day-tile {
+  padding:10px;
+  text-align: center;
+  color: black;
+}
+.curr-cond {
+  width: 100px;
+  font-size: 8pt;
+}
+
+ul {
+  list-style-type: none;
+}
