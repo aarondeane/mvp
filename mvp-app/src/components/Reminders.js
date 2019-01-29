@@ -5,21 +5,33 @@ class Reminders extends Component {
     super(props);
     this.state = {
       newReminder: '',
-      complete: false,
       reminders: [],
     }
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
+  handleCompleted(event) {
+    const target = event.target;
+    const value = target.checked;
+    const id = target.id;
+    console.log(id);
+    fetch('/api/reminders', {
+      method: 'DELETE',
+      body: JSON.stringify(id),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .catch(err => console.error('Error: ', err));    
   }
 
   handleInputChange(event) {
     const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const value = target.value;
     
     this.setState({
       newReminder: value,
-      complete: value,
     });
   }
 
@@ -37,13 +49,18 @@ class Reminders extends Component {
       }
     })
     .then(res => {
-      console.log('Reminder added!');
-      this.setState({
-        newReminder: ''
-      });
+      fetch('/api/reminders')
+      .then(response => {
+        return response.json();
+      })
+      .then(result => {
+        this.setState({
+          newReminder: '',
+          reminders: result,
+        })
+      })
     })
     .catch(err => console.error('Error: ', err))
-
     event.preventDefault();
   }
 
@@ -63,14 +80,14 @@ class Reminders extends Component {
     return (
       <div className="reminders">
         <form onSubmit={this.handleSubmit}>
-          <label>What Would You Like To Accomplish Today?</label>
-          <input type="text" name="Goal" onChange={this.handleInputChange}/>
+          <label>What Would You Like To Accomplish Today?</label><br />
+          <input type="text" name="Goal" onChange={this.handleInputChange}/><br/>
           <input type="submit" name="Submit" />
         </form>
         <ul className="reminder-list">
           {this.state.reminders.map(reminder => (
             <li key={reminder._id}>
-              <input type="checkbox" checked={reminder.complete} onChange={this.handleInputChange}/>
+              <input type="checkbox" id={reminder._id} onChange={this.handleCompleted}/>
               {reminder.text}
             </li>
           ))}

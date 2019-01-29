@@ -22,8 +22,14 @@ const addNewReminder = (reminder, cb) => {
   });
 };
 
-const toggleCompleted = (reminder, status, cb) => {
-  
+const toggleCompleted = (reminder, cb) => {
+  Reminder.findByIdAndDelete(reminder, (err, result) => {
+    if (err) {
+      cb(err);
+    } else {
+      cb(null, result);
+    }
+  })
 };
 
 

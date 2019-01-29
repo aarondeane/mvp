@@ -64,5 +64,16 @@ app.post('/api/reminders', (req, res) => {
   });
 });
 
+app.delete('/api/reminders', (req, res) => {
+  console.log('id to delete: ', req.body);
+  toggleCompleted(req.body, (err, result) => {
+    if (err) {
+      res.status(404).send(err);
+    } else {
+      res.status(201).send(result);
+    }
+  })
+})
+
 
 app.listen(PORT, ()=> console.log(`Express listening on port ${PORT}`));

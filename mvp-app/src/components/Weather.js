@@ -23,9 +23,10 @@ class Weather extends Component {
     .then(result => {
       result = JSON.parse(result);
       let forecast = [];
-      result.daily.data.forEach(record => {
-        forecast.push(record);
-      })
+      for(let i = 1; i < result.daily.data.length; i++) {
+        forecast.push(result.daily.data[i]);
+      }
+
       this.setState({
         current: {
           temperature: result.currently.apparentTemperature,
@@ -41,19 +42,24 @@ class Weather extends Component {
     let day = new Date();
     let todayNum = day.getDay();
     let today = this.props.days[todayNum];
-;    return (
-      <div className="weather-bar">
-        <div className="day-tile">
-          <span className="weather-icon">
-            <img src={`https://s3-us-west-1.amazonaws.com/mvp-app-trimtab/${this.state.current.icon}.svg`} alt="curr-conditions-icon" />
-          </span>
-          <p className="curr-temp">{Math.ceil(this.state.current.temperature)}</p>
-          <p className="label">{today}</p>
-          <p className="curr-cond">{this.state.current.summary}</p>
+    if (this.state.forecast.length === 0) {
+      return(<div>Weather Data Loading...</div>)
+    } else {
+      return (
+        <div className="weather-bar">
+        {this.state.forecast.map((day, index) =>
+          <div className="day-tile" key={index}>
+            <span className="weather-icon">
+              <img src={`https://s3-us-west-1.amazonaws.com/mvp-app-trimtab/${this.state.forecast[index].icon}.svg`} alt="curr-conditions-icon" />
+            </span>
+            <p className="curr-temp">{Math.ceil(this.state.forecast[index].temperatureLow)} | {Math.ceil(this.state.forecast[index].temperatureHigh)}</p>
+            <p className="label">{this.props.days[index]}</p>
+            <p className="curr-cond">{this.state.forecast[index].summary}</p>
+          </div>
+          )}  
         </div>
-        {/* <Forecast days={this.props.days} today={todayNum} forecast={this.state.forecast} /> */}
-      </div>
-    )
+      )
+    }
   }  
 }
 
