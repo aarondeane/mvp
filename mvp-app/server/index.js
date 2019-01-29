@@ -70,7 +70,7 @@ app.delete('/api/reminders', (req, res) => {
     if (err) {
       res.status(404).send(err);
     } else {
-      res.status(201).send(result);
+      res.status(200).send(result);
     }
   })
 })

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './Weather.css';
 // import Forecast from './Forecast';
 
 class Weather extends Component {
@@ -39,9 +38,6 @@ class Weather extends Component {
   }
 
   render () {
-    let day = new Date();
-    let todayNum = day.getDay();
-    let today = this.props.days[todayNum];
     if (this.state.forecast.length === 0) {
       return(<div>Weather Data Loading...</div>)
     } else {

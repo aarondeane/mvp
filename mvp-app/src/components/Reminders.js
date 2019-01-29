@@ -13,12 +13,10 @@ class Reminders extends Component {
 
   handleCompleted(event) {
     const target = event.target;
-    const value = target.checked;
     const id = target.id;
-    console.log(id);
     fetch('/api/reminders', {
       method: 'DELETE',
-      body: JSON.stringify(id),
+      body: JSON.stringify({_id: id}),
       headers: {
         'Content-Type': 'application/json'
       }
@@ -81,7 +79,7 @@ class Reminders extends Component {
       <div className="reminders">
         <form onSubmit={this.handleSubmit}>
           <label>What Would You Like To Accomplish Today?</label><br />
-          <input type="text" name="Goal" onChange={this.handleInputChange}/><br/>
+          <input type="text" className="reminder-input" onChange={this.handleInputChange}/>
           <input type="submit" name="Submit" />
         </form>
         <ul className="reminder-list">
