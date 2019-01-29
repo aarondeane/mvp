@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Weather from './Weather';
 import Reminders from './Reminders';
+import News from './News';
 
 class App extends Component {
   constructor(props) {
@@ -16,6 +17,7 @@ class App extends Component {
       <div className="App">
         <Weather days={this.state.days} />
         <Reminders />
+        <News />
       </div>
     );
   }

@@ -5,6 +5,7 @@ class Reminders extends Component {
     super(props);
     this.state = {
       newReminder: '',
+      complete: false,
       reminders: [],
     }
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -18,13 +19,14 @@ class Reminders extends Component {
     
     this.setState({
       newReminder: value,
+      complete: value,
     });
   }
 
   handleSubmit(event) {
     let data = {
       text: this.state.newReminder,
-      complete: false,
+      complete: this.state.complete,
     };
     
     fetch('/api/reminders', {
@@ -42,7 +44,7 @@ class Reminders extends Component {
     })
     .catch(err => console.error('Error: ', err))
 
-    // event.preventDefault();
+    event.preventDefault();
   }
 
   componentDidMount() {
@@ -67,7 +69,10 @@ class Reminders extends Component {
         </form>
         <ul className="reminder-list">
           {this.state.reminders.map(reminder => (
-            <li key={reminder._id}>{reminder.text}</li>
+            <li key={reminder._id}>
+              <input type="checkbox" checked={reminder.complete} onChange={this.handleInputChange}/>
+              {reminder.text}
+            </li>
           ))}
         </ul>
       </div>      

@@ -4,7 +4,7 @@ const request = require('request');
 const path = require('path');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
-const { geoLocationKey, darkSkyKey } = require('../API Keys/config');
+const { geoLocationKey, darkSkyKey, newsAPIKey } = require('../API Keys/config');
 const { getAllReminders, addNewReminder, toggleCompleted } = require('../database/controllers/reminder');
 const PORT = 5000;
 
@@ -18,6 +18,16 @@ app.get('/api/reminders', (req, res) => {
       res.status(404).send(err);
     } else {
       res.status(200).json(result);
+    }
+  })
+})
+
+app.get('/api/news', (req, res) => {
+  request.get(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${newsAPIKey}`, (err, response, body) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.status(200).json(body);
     }
   })
 })
